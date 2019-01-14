@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'movie.spiders'
 #USER_AGENT = 'movie (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -64,9 +64,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'movie.pipelines.MoviePipeline': 300,
-#}
+# 好像冰激凌工厂，流水线先蛋筒，填装冰激凌，撒上巧克力。pipeline.py中可能有多个功能的管道（数据清洗，存储csv，存储数据库），下面配置表示顺序，按整数值顺序（1-1000）执行。
+ITEM_PIPELINES = {
+   'movie.pipelines.MoviePipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
